@@ -1,0 +1,26 @@
+authenticate_service_url: https://authenticate.example.com
+authorize_service_url: https://authorize.example.com
+
+idp_provider: google
+idp_client_id: yyyyyyyyyyyyyyyyy
+idp_client_secret: xxxxxxxxxxxxxx
+
+
+policy:
+- allowed_domains:
+  - pomerium.io
+  allowed_users:
+  - alice@example.com
+  - bob@example.com
+  cors_allow_preflight: true
+  from: https://httpbin.corp.beyondperimeter.com
+  timeout: 30s
+  to: http://httpbin
+- allowed_domains:
+  - pomerium.io
+  allowed_users:
+  - alice@example.com
+  cors_allow_preflight: true
+  from: https://httpbin.corp.beyondperimeter.com
+  timeout: 30s
+  to: http://httpbin

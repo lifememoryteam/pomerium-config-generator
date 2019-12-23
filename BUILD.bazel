@@ -1,0 +1,23 @@
+load("@bazel_gazelle//:def.bzl", "gazelle")
+
+# gazelle:prefix github.com/lifememoryteam/pomerium-config-generator
+gazelle(name = "gazelle")
+
+load("@io_bazel_rules_docker//go:image.bzl", "go_image")
+load("@io_bazel_rules_docker//container:container.bzl", "container_push")
+
+go_image(
+    name = "image",
+    binary = "//cmd/pomerium-config-generator",
+    pure = "on",
+    visibility = ["//visibility:public"],
+)
+
+container_push(
+    name = "push",
+    image = ":image",
+    tag = "latest",
+    format = "Docker",
+    registry = "docker.pkg.github.com",
+    repository = "lifememoryteam/pomerium-config-generator/pomerium-config-generator",
+)

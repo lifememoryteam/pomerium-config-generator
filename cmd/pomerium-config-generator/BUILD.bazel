@@ -1,0 +1,21 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["main.go"],
+    importpath = "github.com/lifememoryteam/pomerium-config-generator/cmd/pomerium-config-generator",
+    visibility = ["//visibility:private"],
+    deps = [
+        "//pkg/policy:go_default_library",
+        "//pkg/team:go_default_library",
+        "//pkg/template:go_default_library",
+        "//vendor/github.com/spf13/pflag:go_default_library",
+    ],
+)
+
+go_binary(
+    name = "pomerium-config-generator",
+    embed = [":go_default_library"],
+    visibility = ["//visibility:public"],
+)
+

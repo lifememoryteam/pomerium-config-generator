@@ -1,0 +1,22 @@
+policy:
+  - pomerium:
+      from: https://httpbin.corp.beyondperimeter.com
+      to: http://httpbin
+      allowed_domains:
+        - pomerium.io
+      cors_allow_preflight: true
+      timeout: 30s
+    pomerium_config_generator:
+      group:
+        - admin
+        - infra
+  - pomerium:
+      from: https://httpbin.corp.beyondperimeter.com
+      to: http://httpbin
+      allowed_domains:
+        - pomerium.io
+      cors_allow_preflight: true
+      timeout: 30s
+    pomerium_config_generator:
+      group:
+        - admin

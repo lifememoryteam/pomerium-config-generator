@@ -1,0 +1,9 @@
+# Administrator
+admin:
+  member:
+    - alice@example.com
+
+# Infra-team
+infra:
+  member:
+    - bob@example.com
